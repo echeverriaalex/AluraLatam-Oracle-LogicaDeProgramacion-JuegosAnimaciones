@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Dibuja puntos de colores Red Green Blue</h2>
+        <h3>click izquierdo para dibujar, click derecho para cambiar el color</h3>
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+            var pantalla = document.querySelector("canvas");
+            var pincel = pantalla.getContext("2d");
+            pincel.fillStyle = "grey";
+            pincel.fillRect(0,0,600,400);
+            var colores = ["blue", "red", "green"];
+            var indiceColorActual = 0; // comienza con blue
+
+            function dibujarCirculo(evento){
+                var x = evento.pageX - pantalla.offsetLeft; // al valor le resto el margen blanco que se hace
+                var y = evento.pageY - pantalla.offsetTop;
+
+                pincel.fillStyle = colores[indiceColorActual]; // dibuja circulos azules
+                pincel.beginPath(); // inicio el camino, direccion
+                // grafico circulo, paso coordenadas x e y, radio de 10, angulo inicial 0, angulo final 2 * PI 
+                pincel.arc(x,y, 10, 0, 2*3.14);
+                pincel.fill(); // para que aparezca
+                console.log("Hiciste click: " + x + " en X y " + y + " en Y.");
+                //console.log("Color cambiado a:" + colores[indiceColorActual]);
+            }
+            
+            pantalla.onclick = dibujarCirculo;
+            
+            function alterarColor(){
+                indiceColorActual ++;                
+                if(indiceColorActual >= colores.length){
+                    indiceColorActual = 0;
+                }
+                console.log("Color cambiado a:" + colores[indiceColorActual]);
+                return false; // menu contextual no se muestra (el menu de opciones)
+            }
+
+            pantalla.oncontextmenu = alterarColor;
+            
+
+        </script>
+    </body>
+</html>

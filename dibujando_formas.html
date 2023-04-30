@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Hago distintas formas</h1>
+        <h2>Puede ser la bandera de Italia ... </h2>
+        <h3>y si tienes imaginacion puedes ver como la desformo o le dibujo un ovni en medio</h3>
+
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+            var pantalla = document.querySelector("canvas");
+            var pincel = pantalla.getContext("2d");
+
+            // esto pinta todo el canvas de gris
+            pincel.fillStyle = "lightgrey"; // propiedad
+            pincel.fillRect(0,0,600,400); // funcion
+
+            // esto pinta el cambas desde que empieza has los 200px en x y de arriba a abajo con el 400px
+            pincel.fillStyle = "green"; // propiedad
+                    // EJES   X , Y, 200 de ancho, 400 de alto 
+            pincel.fillRect(0,0,200,400); // funcion
+
+            // dibuja como el verde pero del otro lado
+            pincel.fillStyle = "red"; // propiedad
+            pincel.fillRect(400,0,200,400); // funcion
+
+            // dibuja un triangulo en el medio abajo del todo
+            pincel.fillStyle = "yellow"; // propiedad
+            pincel.beginPath();
+            pincel.moveTo(300,200); // funcion
+            pincel.lineTo(200,400);
+            pincel.lineTo(400,400);
+            pincel.fill();
+
+            // dibuja un criculo sobre el triangulo como cubriendo la punta del triangulo
+            pincel.fillStyle = "blue";
+            pincel.beginPath();
+            pincel.arc(300,200,50,0,2*3.14);
+            pincel.fill();
+        </script>
+    </body>
+</html>

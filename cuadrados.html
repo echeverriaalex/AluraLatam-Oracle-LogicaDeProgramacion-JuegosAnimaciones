@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Dibujo cuadrado o cuadrados</h2>
+        <h3>Depende de si comento o no partes del codigo</h3>
+        <canvas width="600" height="400"></canvas>
+
+        <script>
+        
+            /*  DIBUJANDO CUADRADOS UNO AL LADO DEL 
+                OTRO CAMBIANDO LAS CORDENADAS DE INICIO
+            var pantalla = document.querySelector("canvas");
+            var pincel = pantalla.getContext("2d");           
+
+            // dibujo cuadrado verde
+            pincel.fillStyle = "green";
+            pincel.fillRect(0,0,50,50);
+            // dibujo borde negro para el cuadrado y asi separo visualmente un cuadrado del otro 
+            // las coordenadas deben ser iguales
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(0,0,50,50);
+
+            // otro cuadrado pero al lado
+            pincel.fillStyle = "green";
+            pincel.fillRect(50,0,50,50);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(50,0,50,50);
+
+            pincel.fillStyle = "green";
+            pincel.fillRect(100,0,50,50);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(100,0,50,50);
+
+            pincel.fillStyle = "green";
+            pincel.fillRect(150,0,50,50);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(150,0,50,50);
+
+            pincel.fillStyle = "green";
+            pincel.fillRect(200,0,50,50);
+            pincel.strokeStyle = "black";
+            pincel.strokeRect(200,0,50,50);
+            */
+
+            // DIBUJANDO CUADRADOS UNO AL LADO DEL 
+            // OTRO CAMBIANDO LAS CORDENADAS DE INICIO
+            // CON FUCNCIONES Y LOOPS
+
+            function dibujarCuadradoVerde(){
+
+                var pantalla = document.querySelector("canvas");
+                var pincel = pantalla.getContext("2d");
+                pincel.fillStyle = "green";
+                pincel.fillRect(0,0,50,50);
+                pincel.strokeStyle = "black";
+                pincel.strokeRect(0,0,50,50);
+            }
+
+
+            dibujarCuadradoVerde();
+            
+        </script>
+    </body>
+</html>

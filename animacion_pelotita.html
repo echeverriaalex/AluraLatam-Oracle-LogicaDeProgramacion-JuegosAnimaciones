@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Animacion moviendo la pelotita,  como Messi ⭐⭐⭐</h2>
+    <h3>Puede ir de izquiera a derecha y tambien volver, es una pelotita SMART</h3>
+    <canvas width="600" height="400"></canvas>
+
+    <script>
+        var pantalla = document.querySelector("canvas");
+        var pincel = pantalla.getContext("2d");
+        pincel.fillStyle = "grey";
+        pincel.fillRect(0,0,600,400);
+
+        function diseñarCircunferencia(x,y,radio){
+            pincel.fillStyle = "blue";
+            pincel.beginPath();
+            pincel.arc(x,y,radio,0,2*Math.PI);
+            pincel.fill();
+        }
+
+        function limpiarPantalla(){
+            /* aca limpio pantalla todo*/
+            pincel.clearRect(0,0,600,400);
+
+            /* con esto pinto el cambas despues de cada limpieza */
+            //pincel.fillStyle = "grey";
+            //pincel.fillRect(0,0,600,400);
+        }
+
+        function exibirMensaje(){
+            console.log("mostrar mensaje");
+        }
+        
+        var x = 0;
+        var sentido = 1;
+        function actualizarPantalla(){
+
+            limpiarPantalla();
+
+            if(x > 600){
+                sentido = -1;
+            }else if(x < 0){
+                sentido = 1;
+            }
+
+            /*  
+                usando las variables sentido y X hago que la pelotita vaya de izquierda a derecha
+                y cuando llegue al final vuelva hacia la izquierda repetetivamente
+            */
+            diseñarCircunferencia(x,20,10);
+            // x++;
+            x = x + sentido;
+
+            /*  
+                con esto hago que la pelotita vuelva al 
+                inicio repetetivamente de izquierda a derecha
+            */
+            /*
+            if(x> 600){
+                x =0;
+            }
+            */
+        }
+
+        //setInterval(exibirMensaje, 1000);
+        setInterval(actualizarPantalla, 1);
+    </script>
+</body>
+</html>
